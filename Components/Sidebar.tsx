@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaHome, FaCalendarAlt, FaUser, FaEnvelope, FaCertificate, FaUserCircle } from 'react-icons/fa';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 const menuItems = [
   { name: 'Dashboard', icon: <FaHome className="h-5 w-5" />, path: '/' },
@@ -28,8 +29,8 @@ const Sidebar: React.FC = () => {
       <div>
         {/* Logo and title: Show logo on small screens, hide the text */}
         <div className="flex items-center mb-4">
-          <img src="/logo.png" alt="App Logo" className="h-12 mr-3" />
-          <span className="text-xl font-semibold hidden sm:block">E-Cell SRMUH</span> {/* Hide title on small screens */}
+        <Image src="/logo.png" alt="App Logo" className="h-12 mx-auto" width={48} height={48} />
+        <span className="text-xl font-semibold hidden sm:block">E-Cell SRMUH</span> {/* Hide title on small screens */}
         </div>
         
         {/* Menu items */}
