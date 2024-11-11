@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -58,15 +59,15 @@ const TeamMembersList = () => {
     };
 
     return (
-        <div className="p-6 max-w-5xl mx-auto bg-gray-800 text-white">
-            <div className="flex justify-between items-center mb-4">
-                <h1 className="text-3xl font-bold text-gray-100">Members List</h1>
+        <div className="p-6 max-w-5xl mx-auto bg-gray-800 text-white rounded-lg shadow-lg">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+                <h1 className="text-3xl font-bold text-gray-100 mb-4 sm:mb-0">Members List</h1>
                 <button
-                    className="flex items-center gap-2 bg-blue-600 text-white py-2 px-4 rounded shadow hover:bg-blue-700 transition duration-200"
+                    className="flex items-center gap-2 bg-blue-600 text-white py-2 px-4 rounded shadow hover:bg-blue-700 transition duration-200 transform hover:scale-105 active:scale-95"
                     onClick={handleCreateMember}
                 >
                     <AiOutlinePlus size={20} />
-                    Create New Member
+                    <span className="hidden sm:inline">Create New Member</span>
                 </button>
             </div>
 
@@ -138,13 +139,13 @@ const TeamMembersList = () => {
                                     </td>
                                     <td className="p-4 flex items-center gap-4">
                                         <button
-                                            className="text-yellow-500 hover:text-yellow-600 transition"
+                                            className="text-yellow-500 hover:text-yellow-600 transition transform hover:scale-105"
                                             onClick={() => handleEditMember(member._id)}
                                         >
                                             <AiOutlineEdit size={20} />
                                         </button>
                                         <button
-                                            className="text-red-500 hover:text-red-600 transition"
+                                            className="text-red-500 hover:text-red-600 transition transform hover:scale-105"
                                             onClick={() => setDeleteId(member._id)}
                                         >
                                             <AiOutlineDelete size={20} />
@@ -159,19 +160,19 @@ const TeamMembersList = () => {
 
             {/* Delete Confirmation Modal */}
             {deleteId && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
                     <div className="bg-gray-800 text-white rounded-lg p-6 w-80 text-center shadow-lg">
                         <h2 className="text-xl font-semibold mb-4">Confirm Delete</h2>
                         <p>Are you sure you want to delete this member?</p>
                         <div className="flex justify-between mt-6">
                             <button
-                                className="bg-gray-600 text-gray-100 py-2 px-4 rounded hover:bg-gray-500"
+                                className="bg-gray-600 text-gray-100 py-2 px-4 rounded hover:bg-gray-500 transition"
                                 onClick={() => setDeleteId(null)}
                             >
                                 Cancel
                             </button>
                             <button
-                                className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+                                className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
                                 onClick={handleDeleteMember}
                             >
                                 Delete
